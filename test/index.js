@@ -24,16 +24,20 @@ var assert = require('chai').assert;
 
 describe('Mongo', function () {
 
-  it('should merge opts', function () {
-    var mongo = new Mongo({ a: 'a' });
-    assert.isNotNull(mongo);
-    assert.equal(mongo.a, 'a');
-    console.log('mongo', mongo);
-  });
+  //it('should merge opts', function () {
+  //  var mongo = new Mongo({ a: 'a' });
+  //  assert.isNotNull(mongo);
+  //  assert.equal(mongo.a, 'a');
+  //  console.log('mongo', mongo);
+  //});
 
 
   it('command db.isMaster() should pass', function (done) {
-    var mongo = new Mongo();
+    var mongo = new Mongo({
+      host: 'localhost',
+      port: 27017
+    });
+
 
     assert.isNotNull(mongo);
     var failed = false;

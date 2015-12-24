@@ -1,15 +1,7 @@
 ﻿
 module.exports = function (grunt) {  
  
-  grunt.initConfig({
-    shell: {
-      exec: {
-        options: {
-          stdout: true,
-          stderr: true
-        }
-      }
-    },
+  grunt.initConfig({   
     jshint: {
       options: {
         jshintrc: true,
@@ -21,7 +13,6 @@ module.exports = function (grunt) {
       ]
     },
     mochaTest: {
-      config: config,
       test: {
         options: {
           reporter: 'spec',
