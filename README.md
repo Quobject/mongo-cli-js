@@ -297,3 +297,150 @@ mongo.command('rs.add(\'mongodb2:27017\')').then(function (data) {
 //}
 
 ```
+
+
+* rs.status()
+
+```js
+
+mongo.command('rs.status()').then(function (data) {
+  console.log('data = ', data); 
+});
+
+
+//data = {
+//  command: 'mongo --host localhost --port 27017  --eval "rs.status()"',
+//  raw: '["MongoDB shell version: 3.2.0\\nconnecting to: localhost:27017/test\\n{\\n\\t\\"set\\" : \\"mongodb\\",\\n\\t\\"date\\" : ISODate(\\"2015-12-25T07:03:18.365Z\\"),\\n\\t\\"myState\\" : 1,\\n\\t\\"term\\" : NumberLong(1),\\n\\t\\"heartbeatIntervalMillis\\" : NumberLong(2000),\\n\\t\\"members\\" : [\\n\\t\\t{\\n\\t\\t\\t\\"_id\\" : 0,\\n\\t\\t\\t\\"name\\" : \\"mongodb1:27017\\",\\n\\t\\t\\t\\"health\\" : 1,\\n\\t\\t\\t\\"state\\" : 1,\\n\\t\\t\\t\\"stateStr\\" : \\"PRIMARY\\",\\n\\t\\t\\t\\"uptime\\" : 4872,\\n\\t\\t\\t\\"optime\\" : {\\n\\t\\t\\t\\t\\"ts\\" : Timestamp(1451023102, 1),\\n\\t\\t\\t\\t\\"t\\" : NumberLong(1)\\n\\t\\t\\t},\\n\\t\\t\\t\\"optimeDate\\" : ISODate(\\"2015-12-25T05:58:22Z\\"),\\n\\t\\t\\t\\"electionTime\\" : Timestamp(1451022242, 2),\\n\\t\\t\\t\\"electionDate\\" : ISODate(\\"2015-12-25T05:44:02Z\\"),\\n\\t\\t\\t\\"configVersion\\" : 3,\\n\\t\\t\\t\\"self\\" : true\\n\\t\\t},\\n\\t\\t{\\n\\t\\t\\t\\"_id\\" : 1,\\n\\t\\t\\t\\"name\\" : \\"mongodb2:27017\\",\\n\\t\\t\\t\\"health\\" : 1,\\n\\t\\t\\t\\"state\\" : 2,\\n\\t\\t\\t\\"stateStr\\" : \\"SECONDARY\\",\\n\\t\\t\\t\\"uptime\\" : 4700,\\n\\t\\t\\t\\"optime\\" : {\\n\\t\\t\\t\\t\\"ts\\" : Timestamp(1451023102, 1),\\n\\t\\t\\t\\t\\"t\\" : NumberLong(1)\\n\\t\\t\\t},\\n\\t\\t\\t\\"optimeDate\\" : ISODate(\\"2015-12-25T05:58:22Z\\"),\\n\\t\\t\\t\\"lastHeartbeat\\" : ISODate(\\"2015-12-25T07:03:17.273Z\\"),\\n\\t\\t\\t\\"lastHeartbeatRecv\\" : ISODate(\\"2015-12-25T07:03:17.601Z\\"),\\n\\t\\t\\t\\"pingMs\\" : NumberLong(0),\\n\\t\\t\\t\\"syncingTo\\" : \\"mongodb1:27017\\",\\n\\t\\t\\t\\"configVersion\\" : 3\\n\\t\\t},\\n\\t\\t{\\n\\t\\t\\t\\"_id\\" : 2,\\n\\t\\t\\t\\"name\\" : \\"mongodb3:27017\\",\\n\\t\\t\\t\\"health\\" : 1,\\n\\t\\t\\t\\"state\\" : 2,\\n\\t\\t\\t\\"stateStr\\" : \\"SECONDARY\\",\\n\\t\\t\\t\\"uptime\\" : 3896,\\n\\t\\t\\t\\"optime\\" : {\\n\\t\\t\\t\\t\\"ts\\" : Timestamp(1451023102, 1),\\n\\t\\t\\t\\t\\"t\\" : NumberLong(1)\\n\\t\\t\\t},\\n\\t\\t\\t\\"optimeDate\\" : ISODate(\\"2015-12-25T05:58:22Z\\"),\\n\\t\\t\\t\\"lastHeartbeat\\" : ISODate(\\"2015-12-25T07:03:17.273Z\\"),\\n\\t\\t\\t\\"lastHeartbeatRecv\\" : ISODate(\\"2015-12-25T07:03:14.084Z\\"),\\n\\t\\t\\t\\"pingMs\\" : NumberLong(0),\\n\\t\\t\\t\\"configVersion\\" : 3\\n\\t\\t}\\n\\t],\\n\\t\\"ok\\" : 1\\n}\\n",""]',
+//  lines:
+//   ['MongoDB shell version: 3.2.0',
+//     'connecting to: localhost:27017/test',
+//     '{',
+//     '\t"set" : "mongodb",',
+//     '\t"date" : ISODate("2015-12-25T07:03:18.365Z"),',
+//     '\t"myState" : 1,',
+//     '\t"term" : NumberLong(1),',
+//     '\t"heartbeatIntervalMillis" : NumberLong(2000),',
+//     '\t"members" : [',
+//     '\t\t{',
+//     '\t\t\t"_id" : 0,',
+//     '\t\t\t"name" : "mongodb1:27017",',
+//     '\t\t\t"health" : 1,',
+//     '\t\t\t"state" : 1,',
+//     '\t\t\t"stateStr" : "PRIMARY",',
+//     '\t\t\t"uptime" : 4872,',
+//     '\t\t\t"optime" : {',
+//     '\t\t\t\t"ts" : Timestamp(1451023102, 1),',
+//     '\t\t\t\t"t" : NumberLong(1)',
+//     '\t\t\t},',
+//     '\t\t\t"optimeDate" : ISODate("2015-12-25T05:58:22Z"),',
+//     '\t\t\t"electionTime" : Timestamp(1451022242, 2),',
+//     '\t\t\t"electionDate" : ISODate("2015-12-25T05:44:02Z"),',
+//     '\t\t\t"configVersion" : 3,',
+//     '\t\t\t"self" : true',
+//     '\t\t},',
+//     '\t\t{',
+//     '\t\t\t"_id" : 1,',
+//     '\t\t\t"name" : "mongodb2:27017",',
+//     '\t\t\t"health" : 1,',
+//     '\t\t\t"state" : 2,',
+//     '\t\t\t"stateStr" : "SECONDARY",',
+//     '\t\t\t"uptime" : 4700,',
+//     '\t\t\t"optime" : {',
+//     '\t\t\t\t"ts" : Timestamp(1451023102, 1),',
+//     '\t\t\t\t"t" : NumberLong(1)',
+//     '\t\t\t},',
+//     '\t\t\t"optimeDate" : ISODate("2015-12-25T05:58:22Z"),',
+//     '\t\t\t"lastHeartbeat" : ISODate("2015-12-25T07:03:17.273Z"),',
+//     '\t\t\t"lastHeartbeatRecv" : ISODate("2015-12-25T07:03:17.601Z"),',
+//     '\t\t\t"pingMs" : NumberLong(0),',
+//     '\t\t\t"syncingTo" : "mongodb1:27017",',
+//     '\t\t\t"configVersion" : 3',
+//     '\t\t},',
+//     '\t\t{',
+//     '\t\t\t"_id" : 2,',
+//     '\t\t\t"name" : "mongodb3:27017",',
+//     '\t\t\t"health" : 1,',
+//     '\t\t\t"state" : 2,',
+//     '\t\t\t"stateStr" : "SECONDARY",',
+//     '\t\t\t"uptime" : 3896,',
+//     '\t\t\t"optime" : {',
+//     '\t\t\t\t"ts" : Timestamp(1451023102, 1),',
+//     '\t\t\t\t"t" : NumberLong(1)',
+//     '\t\t\t},',
+//     '\t\t\t"optimeDate" : ISODate("2015-12-25T05:58:22Z"),',
+//     '\t\t\t"lastHeartbeat" : ISODate("2015-12-25T07:03:17.273Z"),',
+//     '\t\t\t"lastHeartbeatRecv" : ISODate("2015-12-25T07:03:14.084Z"),',
+//     '\t\t\t"pingMs" : NumberLong(0),',
+//     '\t\t\t"configVersion" : 3',
+//     '\t\t}',
+//     '\t],',
+//     '\t"ok" : 1',
+//     '}',
+//     ''],
+//  object:
+//   {
+//     set: 'mongodb',
+//     date: { '$date': '2015-12-25T07:03:18.365Z' },
+//     myState: 1,
+//     term: { '$numberLong': '1' },
+//     heartbeatIntervalMillis: { '$numberLong': '2000' },
+//     members:
+//      [{
+//        _id: 0,
+//        name: 'mongodb1:27017',
+//        health: 1,
+//        state: 1,
+//        stateStr: 'PRIMARY',
+//        uptime: 4872,
+//        optime:
+//         {
+//           ts: { '$timestamp': { t: 1451023102, i: 1 } },
+//           t: { '$numberLong': '1' }
+//         },
+//        optimeDate: { '$date': '2015-12-25T05:58:22Z' },
+//        electionTime: { '$timestamp': { t: 1451022242, i: 2 } },
+//        electionDate: { '$date': '2015-12-25T05:44:02Z' },
+//        configVersion: 3,
+//        self: true
+//      },
+//        {
+//          _id: 1,
+//          name: 'mongodb2:27017',
+//          health: 1,
+//          state: 2,
+//          stateStr: 'SECONDARY',
+//          uptime: 4700,
+//          optime:
+//           {
+//             ts: { '$timestamp': { t: 1451023102, i: 1 } },
+//             t: { '$numberLong': '1' }
+//           },
+//          optimeDate: { '$date': '2015-12-25T05:58:22Z' },
+//          lastHeartbeat: { '$date': '2015-12-25T07:03:17.273Z' },
+//          lastHeartbeatRecv: { '$date': '2015-12-25T07:03:17.601Z' },
+//          pingMs: { '$numberLong': '0' },
+//          syncingTo: 'mongodb1:27017',
+//          configVersion: 3
+//        },
+//        {
+//          _id: 2,
+//          name: 'mongodb3:27017',
+//          health: 1,
+//          state: 2,
+//          stateStr: 'SECONDARY',
+//          uptime: 3896,
+//          optime:
+//           {
+//             ts: { '$timestamp': { t: 1451023102, i: 1 } },
+//             t: { '$numberLong': '1' }
+//           },
+//          optimeDate: { '$date': '2015-12-25T05:58:22Z' },
+//          lastHeartbeat: { '$date': '2015-12-25T07:03:17.273Z' },
+//          lastHeartbeatRecv: { '$date': '2015-12-25T07:03:14.084Z' },
+//          pingMs: { '$numberLong': '0' },
+//          configVersion: 3
+//        }],
+//     ok: 1
+//   }
+//}
+```
