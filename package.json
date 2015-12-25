@@ -1,6 +1,6 @@
 {
   "name": "mongo-cli-js",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A node.js wrapper for the mongo CLI",
   "main": "lib/index.js",
   "scripts": {

@@ -32,26 +32,26 @@ describe('Mongo', function () {
   //});
 
 
-  //it('command db.isMaster() should pass', function (done) {
-  //  var mongo = new Mongo({
-  //    host: 'localhost',
-  //    port: 27017
-  //  });
+  it('command db.isMaster() should pass', function (done) {
+    var mongo = new Mongo({
+      host: 'localhost',
+      port: 27017
+    });
 
 
-  //  assert.isNotNull(mongo);
-  //  var failed = false;
-  //  var err = null;
-  //  mongo.command('db.isMaster()').then(function (data) {
-  //    console.log('data = ', data);
-  //    assert.isNotNull(data);
-  //  }).finally(function () {
-  //    //console.log('finally ');
-  //    assert.isFalse(failed);
-  //    assert.isNull(err);
-  //    done();
-  //  });
-  //});
+    assert.isNotNull(mongo);
+    var failed = false;
+    var err = null;
+    mongo.command('db.isMaster()').then(function (data) {
+      console.log('data = ', data);
+      assert.isNotNull(data);
+    }).finally(function () {
+      //console.log('finally ');
+      assert.isFalse(failed);
+      assert.isNull(err);
+      done();
+    });
+  });
 
 
   //it('command rs.conf(); should pass', function (done) {
@@ -59,7 +59,6 @@ describe('Mongo', function () {
   //    host: 'localhost',
   //    port: 27017
   //  });
-
 
   //  assert.isNotNull(mongo);
   //  var failed = false;
@@ -75,28 +74,50 @@ describe('Mongo', function () {
   //  });
   //});
 
-  it('command rs.initiate(); should pass', function (done) {
-    var mongo = new Mongo({
-      host: 'localhost',
-      port: 27017
-    });
+  //it('command rs.initiate(); should pass', function (done) {
+  //  var mongo = new Mongo({
+  //    host: 'localhost',
+  //    port: 27017
+  //  });
 
 
-    assert.isNotNull(mongo);
-    var failed = false;
-    var err = null;
-    mongo.command('rs.initiate()').then(function (data) {
-      console.log('data = ', util.inspect(data, { depth: 10 }));
-      assert.isNotNull(data);
-    }).finally(function () {
-      //console.log('finally ');
-      assert.isFalse(failed);
-      assert.isNull(err);
-      done();
-    });
-  });
+  //  assert.isNotNull(mongo);
+  //  var failed = false;
+  //  var err = null;
+  //  mongo.command('rs.initiate()').then(function (data) {
+  //    console.log('data = ', util.inspect(data, { depth: 10 }));
+  //    assert.isNotNull(data);
+  //  }).finally(function () {
+  //    //console.log('finally ');
+  //    assert.isFalse(failed);
+  //    assert.isNull(err);
+  //    done();
+  //  });
+  //});
 
+
+  //it('command rs.add(); should pass', function (done) {
+  //  var mongo = new Mongo({
+  //    host: 'localhost',
+  //    port: 27017
+  //  });
+
+
+  //  assert.isNotNull(mongo);
+  //  var failed = false;
+  //  var err = null;
+  //  mongo.command('rs.add(\'mongodb2:27017\')').then(function (data) {
+  //    console.log('data = ', util.inspect(data, { depth: 10 }));
+  //    assert.isNotNull(data);
+  //  }).finally(function () {
+  //    //console.log('finally ');
+  //    assert.isFalse(failed);
+  //    assert.isNull(err);
+  //    done();
+  //  });
+  //});
 
 
 
 });
+
