@@ -19,7 +19,7 @@ var Mongo = require('../lib/index.js');
 var path = require('path');
 var should = require('chai').should();
 var assert = require('chai').assert;
-
+var util = require('util');
 
 
 describe('Mongo', function () {
@@ -32,7 +32,50 @@ describe('Mongo', function () {
   //});
 
 
-  it('command db.isMaster() should pass', function (done) {
+  //it('command db.isMaster() should pass', function (done) {
+  //  var mongo = new Mongo({
+  //    host: 'localhost',
+  //    port: 27017
+  //  });
+
+
+  //  assert.isNotNull(mongo);
+  //  var failed = false;
+  //  var err = null;
+  //  mongo.command('db.isMaster()').then(function (data) {
+  //    console.log('data = ', data);
+  //    assert.isNotNull(data);
+  //  }).finally(function () {
+  //    //console.log('finally ');
+  //    assert.isFalse(failed);
+  //    assert.isNull(err);
+  //    done();
+  //  });
+  //});
+
+
+  //it('command rs.conf(); should pass', function (done) {
+  //  var mongo = new Mongo({
+  //    host: 'localhost',
+  //    port: 27017
+  //  });
+
+
+  //  assert.isNotNull(mongo);
+  //  var failed = false;
+  //  var err = null;
+  //  mongo.command('rs.conf()').then(function (data) {
+  //    console.log('data = ', util.inspect(data, {depth:10}));
+  //    assert.isNotNull(data);
+  //  }).finally(function () {
+  //    //console.log('finally ');
+  //    assert.isFalse(failed);
+  //    assert.isNull(err);
+  //    done();
+  //  });
+  //});
+
+  it('command rs.initiate(); should pass', function (done) {
     var mongo = new Mongo({
       host: 'localhost',
       port: 27017
@@ -42,8 +85,8 @@ describe('Mongo', function () {
     assert.isNotNull(mongo);
     var failed = false;
     var err = null;
-    mongo.command('db.isMaster()').then(function (data) {
-      console.log('data = ', data);
+    mongo.command('rs.initiate()').then(function (data) {
+      console.log('data = ', util.inspect(data, { depth: 10 }));
       assert.isNotNull(data);
     }).finally(function () {
       //console.log('finally ');
@@ -55,6 +98,5 @@ describe('Mongo', function () {
 
 
 
+
 });
-
-
