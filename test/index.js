@@ -138,5 +138,26 @@ describe('Mongo', function () {
     });
   });
 
+  it('command rs.status() with replica set should pass', function (done) {
+    var mongo = new Mongo({
+      host: 'mongodb/mongodb1:27017,mongodb2:27018,mongodb3:27019'
+    });
+
+
+    assert.isNotNull(mongo);
+    var failed = false;
+    var err = null;
+    mongo.command('rs.status()').then(function (data) {
+      console.log('data = ', util.inspect(data, {depth:10}));
+      assert.isNotNull(data);
+    }).finally(function () {
+      //console.log('finally ');
+      assert.isFalse(failed);
+      assert.isNull(err);
+      done();
+    });
+  });
+
+
 });
 
