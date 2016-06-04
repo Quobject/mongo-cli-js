@@ -1,8 +1,8 @@
 ﻿import * as _ from 'lodash';
-import * as Promise from 'bluebird';
 import * as child_process from 'child_process';
 import * as os from 'os';
 import * as util from 'util';
+import nodeify from 'nodeify-ts';
 const exec = child_process.exec;
 
 const cleanJson = function (line) {
@@ -188,7 +188,7 @@ export class Mongo {
     let mongo = this;
     let execCommand = 'mongo ';
 
-    return Promise.resolve().then(function () {
+    const promise = Promise.resolve().then(function () {
       //console.log('execCommand =', execCommand);
 
       let params = mongo.options.toParams();
@@ -231,12 +231,11 @@ export class Mongo {
       };
       return extractResult(result);
 
-    }).nodeify(callback);
+    });
+
+    return nodeify(promise, callback);
   }
 }
-
-
-
 
 export interface IOptions {
   currentWorkingDirectory?: string;
@@ -244,7 +243,6 @@ export interface IOptions {
   port?: string;
   toParams(): string;
 }
-
 
 export class Options implements IOptions {
   public constructor(
@@ -265,6 +263,4 @@ export class Options implements IOptions {
 
     return params;
   }
-
 }
-

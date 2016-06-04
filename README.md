@@ -4,6 +4,9 @@ A node.js wrapper for the mongo command line tool
 [![NPM](https://nodei.co/npm/mongo-cli-js.png?downloads=true&downloadRank=true)](https://nodei.co/npm/mongo-cli-js/)
 [![NPM](https://nodei.co/npm-dl/mongo-cli-js.png?months=6&height=3)](https://nodei.co/npm/mongo-cli-js/)
 
+[![NPM version][npm-image]][npm-url]
+[![NPM downloads][downloads-image]][downloads-url]
+
 ## Installation
 
 ### Step 1: Prerequisites
@@ -468,3 +471,12 @@ mongo.command('rs.status()').then(function (data) {
 //   }
 //}
 ```
+
+## License
+
+MIT
+
+[npm-image]: https://img.shields.io/npm/v/mongo-cli-js.svg?style=flat
+[npm-url]: https://npmjs.org/package/mongo-cli-js
+[downloads-image]: https://img.shields.io/npm/dm/mongo-cli-js.svg?style=flat
+[downloads-url]: https://npmjs.org/package/mongo-cli-js
