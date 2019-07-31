@@ -248,7 +248,7 @@ export class Options implements IOptions {
   public constructor(
     public currentWorkingDirectory?: string,
     public host = 'localhost',
-    public port = '27017'
+    public port = '27017',
   ) { }
 
   public toParams(): string {

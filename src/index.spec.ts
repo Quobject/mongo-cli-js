@@ -7,7 +7,7 @@ import { Mongo, Options } from './index';
 
 test('mongo-cli-js', t => {
   const options = new Options(
-      /* currentWorkingDirectory */ null
+      /* currentWorkingDirectory */ null,
   );
 
   const mongo = new Mongo(options);
