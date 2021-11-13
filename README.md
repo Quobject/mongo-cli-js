@@ -9,6 +9,10 @@ A node.js wrapper for the mongo command line tool
 
 ## Installation
 
+### Warning
+
+Code uses exec = child_process.exec; https://github.com/Quobject/docker-cli-js/issues/22
+
 ### Step 1: Prerequisites
 
 mongodb must be installed and accessible in the path
